@@ -1,13 +1,10 @@
 package ru.mephi.space.plugins
 
-import io.ktor.routing.*
 import io.ktor.application.*
-import io.ktor.response.*
-import ru.mephi.space.views.signUpUser
+import ru.mephi.space.routes.authenticate.authenticateRouter
+import ru.mephi.space.routes.common.commonRouter
 
 fun Application.configureRouting() {
-    routing {
-        get("/") { call.respondText("Hello!") }
-        post("/signup") { signUpUser() }
-    }
+    authenticateRouter()
+    commonRouter()
 }
