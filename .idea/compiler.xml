@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="16">
+      <module name="ru.mephi.space.space.mephi" target="16" />
+      <module name="ru.mephi.space.space.mephi.main" target="16" />
+      <module name="ru.mephi.space.space.mephi.main~1" target="16" />
+      <module name="ru.mephi.space.space.mephi.test" target="16" />
+      <module name="ru.mephi.space.space.mephi.test~1" target="16" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

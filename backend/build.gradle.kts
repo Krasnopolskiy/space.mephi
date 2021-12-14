@@ -1,10 +1,12 @@
 val ktorVersion: String by project
 val kotlinVersion: String by project
 val logbackVersion: String by project
+val kmongoVersion: String by project
 
 plugins {
     application
     kotlin("jvm") version "1.6.0"
+    kotlin("plugin.serialization") version "1.6.0"
     id("com.github.johnrengelman.shadow") version "7.0.0"
 }
 
@@ -20,13 +22,12 @@ repositories {
 
 dependencies {
     implementation("io.ktor:ktor-server-core:$ktorVersion")
-    implementation("io.ktor:ktor-auth:$ktorVersion")
-    implementation("io.ktor:ktor-auth-jwt:$ktorVersion")
-    implementation("io.ktor:ktor-server-sessions:$ktorVersion")
-    implementation("io.ktor:ktor-server-host-common:$ktorVersion")
+    implementation("io.ktor:ktor-serialization:$ktorVersion")
     implementation("io.ktor:ktor-jackson:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    implementation("org.litote.kmongo:kmongo-coroutine-serialization:$kmongoVersion")
+
     testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
 }
