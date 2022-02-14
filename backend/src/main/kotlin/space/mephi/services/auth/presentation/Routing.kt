@@ -1,13 +1,12 @@
 package space.mephi.services.auth.presentation
 
-import io.ktor.application.*
-import io.ktor.routing.*
+import com.papsign.ktor.openapigen.route.path.normal.NormalOpenAPIRoute
+import com.papsign.ktor.openapigen.route.tag
+import space.mephi.common.SpaceTag
 import space.mephi.services.auth.presentation.routes.signIn
 import space.mephi.services.auth.presentation.routes.signUp
 
-fun Application.authRouting() {
-    routing {
-        signIn()
-        signUp()
-    }
+fun NormalOpenAPIRoute.authRouting() = tag(SpaceTag.Auth) {
+    signIn()
+    signUp()
 }

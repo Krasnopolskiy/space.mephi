@@ -20,6 +20,7 @@ application {
 repositories {
     mavenCentral()
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }
+    maven { url = uri("https://jitpack.io") }
 }
 
 dependencies {
@@ -35,4 +36,6 @@ dependencies {
 
     implementation("io.ktor:ktor-serialization:$ktorVersion")
     implementation("io.ktor:ktor-jackson:$ktorVersion")
+
+    implementation("com.github.papsign:Ktor-OpenAPI-Generator:-SNAPSHOT")
 }
