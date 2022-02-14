@@ -1,10 +1,7 @@
-package space.mephi.common.modules
+package space.mephi.openapi
 
 import com.papsign.ktor.openapigen.OpenAPIGen
-import com.papsign.ktor.openapigen.openAPIGen
 import io.ktor.application.*
-import io.ktor.response.*
-import io.ktor.routing.*
 
 fun Application.installOpenAPIGen() {
     install(OpenAPIGen) {
@@ -18,17 +15,6 @@ fun Application.installOpenAPIGen() {
                 "${environment.config.property("ktor.deployment.host").getString()}:" +
                 "${environment.config.property("ktor.deployment.port").getString()}/") {
             description = "Localhost server" //todo rename
-        }
-    }
-}
-
-fun Application.openapiRouting() {
-    routing {
-        get("/openapi.json") {
-            call.respond(application.openAPIGen.api.serialize())
-        }
-        get("/") {
-            call.respondRedirect("/swagger-ui/index.html?url=/openapi.json", true)
         }
     }
 }

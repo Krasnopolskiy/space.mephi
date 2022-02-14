@@ -9,12 +9,12 @@ import space.mephi.services.auth.domain.controllers.CredentialsControllerImpl
 import space.mephi.services.auth.domain.dto.RawCredentials
 
 fun NormalOpenAPIRoute.signIn() {
-    route("signin") {
+    route("signin/") {
         post<String, String, RawCredentials>(
             info("Sing in")
         ) { _, rawCredentials ->
             CredentialsControllerImpl.signin(rawCredentials)
-            respond("Signed In")
+            respond("Signed in")
         }
     }
 }
