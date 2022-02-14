@@ -6,7 +6,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 import space.mephi.services.auth.data.dao.CredentialsTable
 import space.mephi.services.auth.database.DatabaseFactoryImpl
 
-fun Application.configureAuth(){
+fun Application.configureAuth() {
     configurePostgresDataBase()
 }
 

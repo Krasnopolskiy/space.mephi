@@ -1,6 +1,7 @@
 package space.mephi
 
 import io.ktor.application.*
+import space.mephi.common.installModules
 import space.mephi.services.auth.config.configureAuth
 import space.mephi.services.auth.presentation.authRouting
 

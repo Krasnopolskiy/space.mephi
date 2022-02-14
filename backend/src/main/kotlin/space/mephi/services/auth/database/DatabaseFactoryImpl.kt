@@ -3,7 +3,6 @@ package space.mephi.services.auth.database
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
-import org.jetbrains.exposed.sql.transactions.transaction
 import space.mephi.services.auth.config.DatabaseConfig
 
 class DatabaseFactoryImpl : DatabaseFactory {
