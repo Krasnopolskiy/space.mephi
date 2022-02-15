@@ -6,11 +6,11 @@ import com.papsign.ktor.openapigen.route.path.normal.post
 import com.papsign.ktor.openapigen.route.response.respond
 import com.papsign.ktor.openapigen.route.route
 import space.mephi.services.auth.domain.controllers.CredentialsControllerImpl
-import space.mephi.services.auth.domain.dto.RawCredentials
+import space.mephi.services.auth.domain.dto.Credentials
 
 fun NormalOpenAPIRoute.signIn() {
     route("signin/") {
-        post<String, String, RawCredentials>(
+        post<String, String, Credentials>(
             info("Sing in")
         ) { _, rawCredentials ->
             CredentialsControllerImpl.signin(rawCredentials)
