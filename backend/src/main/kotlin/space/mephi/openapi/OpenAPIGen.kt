@@ -5,16 +5,17 @@ import io.ktor.application.*
 
 fun Application.installOpenAPIGen() {
     install(OpenAPIGen) {
+        val host = environment.config.property("ktor.deployment.host").getString()
+        val port = environment.config.property("ktor.deployment.port").getString()
+
         info {
-            version = "0.0.1"
-            title = "Space.MEPhI API"
-            description = "Space.MEPhI description API" // todo add description
+            version = environment.config.property("openapi.version").getString()
+            title = environment.config.property("openapi.title").getString()
+            description = environment.config.property("openapi.description").getString()
         }
 
-        server("http://" +
-                "${environment.config.property("ktor.deployment.host").getString()}:" +
-                "${environment.config.property("ktor.deployment.port").getString()}/") {
-            description = "Localhost server" //todo rename
+        server("http://$host:$port/") {
+            description = environment.config.property("openapi.description").getString()
         }
     }
 }
