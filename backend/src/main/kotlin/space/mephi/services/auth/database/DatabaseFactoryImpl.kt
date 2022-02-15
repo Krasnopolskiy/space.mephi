@@ -6,7 +6,6 @@ import org.jetbrains.exposed.sql.Database
 import space.mephi.services.auth.config.DatabaseConfig
 
 class DatabaseFactoryImpl : DatabaseFactory {
-
     private val dbConfig = DatabaseConfig()
 
     override fun connect() {

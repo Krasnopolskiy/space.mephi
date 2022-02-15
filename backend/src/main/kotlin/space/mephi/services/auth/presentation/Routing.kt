@@ -6,11 +6,12 @@ import com.papsign.ktor.openapigen.route.tag
 import space.mephi.services.auth.presentation.routes.signIn
 import space.mephi.services.auth.presentation.routes.signUp
 
-enum class AuthTag(override val description: String) : APITag {
-    Auth("Authentication")
-}
+data class AuthTag(
+    override val name: String = "Authentication service",
+    override val description: String = "User authorization and registration"
+) : APITag
 
-fun NormalOpenAPIRoute.authRouting() = tag(AuthTag.Auth) {
+fun NormalOpenAPIRoute.authRouting() = tag(AuthTag()) {
     signIn()
     signUp()
 }

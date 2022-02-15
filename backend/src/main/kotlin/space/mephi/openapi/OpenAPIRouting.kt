@@ -14,7 +14,7 @@ fun Application.openApiRouting() {
 
 fun Route.openAPIRoot() {
     get("/") {
-        call.respondRedirect("/swagger-ui/index.html", true)
+        call.respondRedirect("/swagger-ui/index.html?url=/openapi.json")
     }
 }
 
