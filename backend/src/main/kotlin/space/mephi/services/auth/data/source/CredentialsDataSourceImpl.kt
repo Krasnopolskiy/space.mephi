@@ -5,21 +5,21 @@ import org.jetbrains.exposed.sql.transactions.transaction
 import space.mephi.services.auth.data.dao.CredentialsDAO
 import space.mephi.services.auth.data.dao.CredentialsTable
 import space.mephi.services.auth.domain.adapters.toDTO
-import space.mephi.services.auth.domain.dto.Credentials
+import space.mephi.services.auth.domain.dto.HashedCredentials
 
 object CredentialsDataSourceImpl : CredentialsDataSource {
-    override suspend fun addCredentials(credentials: Credentials) {
+    override suspend fun addCredentials(hashedCredentials: HashedCredentials) {
         transaction {
             CredentialsDAO.new {
-                username = credentials.username
-                hash = credentials.hash
+                username = hashedCredentials.username
+                hash = hashedCredentials.hash
             }
         }
     }
 
-    override suspend fun retrieveCredentials(credentials: Credentials): Credentials? {
+    override suspend fun retrieveCredentials(hashedCredentials: HashedCredentials): HashedCredentials? {
         return transaction {
-            val query = CredentialsTable.select { CredentialsTable.username eq credentials.username }
+            val query = CredentialsTable.select { CredentialsTable.username eq hashedCredentials.username }
             CredentialsDAO.wrapRows(query).toList().firstOrNull()
         }?.toDTO()
     }
