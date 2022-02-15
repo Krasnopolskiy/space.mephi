@@ -5,7 +5,7 @@ import io.ktor.application.*
 import space.mephi.services.auth.presentation.authRouting
 
 fun Application.installAuthService() {
-    installDatabase()
+    configureDatabase()
     apiRouting {
         authRouting()
     }
