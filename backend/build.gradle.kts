@@ -1,6 +1,7 @@
 val ktorVersion: String by project
 val kotlinVersion: String by project
 val logbackVersion: String by project
+val koinVersion: String by project
 val exposedVersion: String by project
 val hikaricpVersion: String by project
 val postgresqlVersion: String by project
@@ -27,6 +28,8 @@ dependencies {
     implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
+
+    implementation("io.insert-koin:koin-ktor:$koinVersion")
 
     implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
     implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
