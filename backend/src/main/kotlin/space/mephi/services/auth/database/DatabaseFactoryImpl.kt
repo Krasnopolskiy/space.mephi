@@ -5,8 +5,12 @@ import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
 import space.mephi.services.auth.config.DatabaseConfig
 
-class DatabaseFactoryImpl : DatabaseFactory {
-    private val dbConfig = DatabaseConfig()
+class DatabaseFactoryImpl(dbConfig: DatabaseConfig.() -> Unit) : DatabaseFactory {
+    private val dbConfig: DatabaseConfig
+
+    init {
+        this.dbConfig = DatabaseConfig().apply(dbConfig)
+    }
 
     override fun connect() {
         Database.connect(hikari())
