@@ -1,9 +1,9 @@
-package space.mephi.services.auth.database
+package space.mephi.common.database.controllers
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
-import space.mephi.services.auth.config.DatabaseConfig
+import space.mephi.common.database.DatabaseConfig
 
 class DatabaseFactoryImpl(dbConfig: DatabaseConfig.() -> Unit) : DatabaseFactory {
     private val dbConfig: DatabaseConfig

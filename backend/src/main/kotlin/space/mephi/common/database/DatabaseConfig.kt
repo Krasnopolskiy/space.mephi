@@ -1,10 +1,18 @@
-package space.mephi.services.auth.bootstrap
+package space.mephi.common.database
 
 import io.ktor.application.*
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
+import space.mephi.common.database.controllers.DatabaseFactoryImpl
 import space.mephi.services.auth.data.dao.CredentialsTable
-import space.mephi.services.auth.database.DatabaseFactoryImpl
+import space.mephi.services.user.data.dao.UserTable
+
+data class DatabaseConfig(
+    var driverClassName: String = "org.postgresql.Driver",
+    var jdbcUrl: String = "jdbc:postgresql://localhost:54320/",
+    var username: String = "postgres",
+    var password: String = "postgres"
+)
 
 fun Application.configureDatabase() {
     val deployment = false
@@ -17,4 +25,5 @@ fun Application.configureDatabase() {
         }
     }.connect()
     transaction { SchemaUtils.create(CredentialsTable) }
+    transaction { SchemaUtils.create(UserTable) }
 }

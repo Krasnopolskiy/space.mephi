@@ -1,4 +1,4 @@
-package space.mephi.services.auth.database
+package space.mephi.common.database.controllers
 
 interface DatabaseFactory {
     fun connect()
