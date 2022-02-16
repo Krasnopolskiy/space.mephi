@@ -11,7 +11,7 @@ object CredentialsDataSourceImpl : CredentialsDataSource {
     override suspend fun addCredentials(hashedCredentials: HashedCredentials) {
         transaction {
             CredentialsDAO.new {
-                username = hashedCredentials.username
+                email = hashedCredentials.email
                 hash = hashedCredentials.hash
             }
         }
@@ -19,7 +19,7 @@ object CredentialsDataSourceImpl : CredentialsDataSource {
 
     override suspend fun retrieveCredentials(hashedCredentials: HashedCredentials): HashedCredentials? {
         return transaction {
-            val query = CredentialsTable.select { CredentialsTable.username eq hashedCredentials.username }
+            val query = CredentialsTable.select { CredentialsTable.email eq hashedCredentials.email }
             CredentialsDAO.wrapRows(query).toList().firstOrNull()
         }?.toDTO()
     }

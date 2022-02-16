@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class HashedCredentials(
-    val username: String,
+    val email: String,
     val hash: ByteArray
 )

@@ -8,6 +8,6 @@ import java.util.*
 class CredentialsDAO(id: EntityID<UUID>) : Entity<UUID>(id) {
     companion object : EntityClass<UUID, CredentialsDAO>(CredentialsTable)
 
-    var username by CredentialsTable.username
+    var email by CredentialsTable.email
     var hash by CredentialsTable.hash
 }
